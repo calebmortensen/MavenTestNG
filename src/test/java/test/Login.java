@@ -61,12 +61,13 @@ public class Login {
 		driver.get("http://tutorialsninja.com/demo/");
 		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
 		driver.findElement(By.linkText("Login")).click();
-		driver.findElement(By.id("input-email")).sendKeys("FAKE@gmail.com");
-		driver.findElement(By.id("input-password")).sendKeys("696969696");
+		driver.findElement(By.id("input-email")).sendKeys("FAKE1@gmail.com");
+		driver.findElement(By.id("input-password")).sendKeys("6969696961");
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
+		Assert.assertTrue(driver.findElement(By.xpath("//div[contains(@class,'alert-dismissibl')]")).getText().contains("Warning: No match for E-Mail Address and/or Password."));
+		//Assert.assertTrue(driver.findElement(By.xpath("//div[contains(@class,'alert-dismissibl')]")).getText().contains("Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour."));
 		
-		Assert.assertTrue(driver.findElement(By.xpath("//div[contains(@class,'alert-dismissibl')]")).getText().contains("Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour."));
-		
+		 
 		//driver.quit(); // Close Browser
 	}
 	
